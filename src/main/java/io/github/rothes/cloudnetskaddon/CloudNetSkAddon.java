@@ -11,6 +11,7 @@ import io.github.rothes.cloudnetskaddon.classes.CloudNetServiceInfoSnapshot;
 import io.github.rothes.cloudnetskaddon.effects.*;
 import io.github.rothes.cloudnetskaddon.expressions.ExprCreateBy;
 import io.github.rothes.cloudnetskaddon.expressions.ExprCreateNew;
+import io.github.rothes.cloudnetskaddon.expressions.ExprCloudServices;
 import io.github.rothes.cloudnetskaddon.expressions.ExprOnlinePlayers;
 import io.github.rothes.cloudnetskaddon.expressions.ExprOnlinePlayersCount;
 import io.github.rothes.cloudnetskaddon.expressions.ExprRegisteredPlayers;
@@ -130,6 +131,12 @@ public class CloudNetSkAddon extends JavaPlugin {
                 "[[with] memory %-string%] [[with] jvmOptions %-string%] [[with] processParameters %-string%] [[with] javaCommand %-string%] [with] type %string%" +
                 "[(1¦and start)]");
 
+        Skript.registerExpression(ExprCloudServices.class, CloudNetServiceInfoSnapshot.class, ExpressionType.SIMPLE,
+                "[the] [cloud[ ]net] cloud service[s]");
+        Skript.registerExpression(ExprCloudServices.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED,
+                "[the] [cloud[ ]net] cloud service[s] by task %string%");
+        Skript.registerExpression(ExprCloudServices.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED,
+                "[the] [cloud[ ]net] cloud service[s] by group %string%");
 
         Skript.registerExpression(ExprServiceInfoSnapshotName.class, String.class, ExpressionType.COMBINED, "[cloud[ ]net] [the] name of %serviceinfosnapshot%");
         Skript.registerExpression(ExprServiceInfoSnapshotAddress.class, String.class, ExpressionType.COMBINED, "[cloud[ ]net] [the] address of %serviceinfosnapshot%");
