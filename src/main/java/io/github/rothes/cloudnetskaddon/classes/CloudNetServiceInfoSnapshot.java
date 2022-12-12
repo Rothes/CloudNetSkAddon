@@ -1,23 +1,37 @@
 package io.github.rothes.cloudnetskaddon.classes;
 
+import de.dytanic.cloudnet.driver.network.HostAndPort;
+import de.dytanic.cloudnet.driver.service.ServiceLifeCycle;
+import de.dytanic.cloudnet.ext.bridge.BridgeServiceProperty;
+
 public final class CloudNetServiceInfoSnapshot {
 
-    public final String name;
-    public final String lifeCycle;
-    public final String address;
+    public final de.dytanic.cloudnet.driver.service.ServiceInfoSnapshot ss;
 
     public CloudNetServiceInfoSnapshot(de.dytanic.cloudnet.driver.service.ServiceInfoSnapshot ss) {
-        name = ss.getName();
-        lifeCycle = ss.getLifeCycle().name();
-        address = ss.getAddress().toString();
+        this.ss = ss;
+    }
+
+    public String getName() {
+        return ss.getName();
+    }
+
+    public HostAndPort getAddress() {
+        return ss.getAddress();
+    }
+
+    public ServiceLifeCycle getLifeCycle() {
+        return ss.getLifeCycle();
+    }
+
+    public int getOnlineCount() {
+        return ss.getProperty(BridgeServiceProperty.ONLINE_COUNT).orElse(0);
     }
 
     @Override
     public String toString() {
-        return "ServiceInfoSnapshot{" +
-                "name='" + name + '\'' +
-                ", status='" + lifeCycle + '\'' +
-                ", address='" + address + '\'' +
+        return "CloudNetServiceInfoSnapshot{" +
+                "ss=" + ss +
                 '}';
     }
 

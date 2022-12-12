@@ -6,7 +6,7 @@ public class ExprServiceInfoSnapshotLifeCycle extends BaseServiceInfoSnapshotExp
 
     @Override
     protected String[] get(Event e) {
-        return new String[]{serviceInfoSnapshot.getSingle(e).lifeCycle};
+        return new String[]{serviceInfoSnapshot.getSingle(e).getLifeCycle().name()};
     }
 
 }

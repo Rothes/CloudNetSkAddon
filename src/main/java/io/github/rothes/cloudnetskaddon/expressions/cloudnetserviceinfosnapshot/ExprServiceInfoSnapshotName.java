@@ -6,7 +6,7 @@ public class ExprServiceInfoSnapshotName extends BaseServiceInfoSnapshotExpr {
 
     @Override
     protected String[] get(Event e) {
-        return new String[]{serviceInfoSnapshot.getSingle(e).name};
+        return new String[]{serviceInfoSnapshot.getSingle(e).getName()};
     }
 
 }

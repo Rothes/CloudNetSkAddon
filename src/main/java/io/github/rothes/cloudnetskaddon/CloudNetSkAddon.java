@@ -17,6 +17,7 @@ import io.github.rothes.cloudnetskaddon.expressions.ExprRegisteredPlayers;
 import io.github.rothes.cloudnetskaddon.expressions.cloudnetserviceinfosnapshot.ExprServiceInfoSnapshotAddress;
 import io.github.rothes.cloudnetskaddon.expressions.cloudnetserviceinfosnapshot.ExprServiceInfoSnapshotLifeCycle;
 import io.github.rothes.cloudnetskaddon.expressions.cloudnetserviceinfosnapshot.ExprServiceInfoSnapshotName;
+import io.github.rothes.cloudnetskaddon.expressions.cloudnetserviceinfosnapshot.ExprServiceInfoSnapshotOnlineCount;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.annotation.Nonnull;
@@ -63,7 +64,7 @@ public class CloudNetSkAddon extends JavaPlugin {
                     @Override
                     @Nonnull
                     public String toVariableNameString(CloudNetServiceInfoSnapshot serviceInfoSnapshot) {
-                        return "ServiceInfoSnapshot:" + serviceInfoSnapshot.name;
+                        return "ServiceInfoSnapshot:" + serviceInfoSnapshot.getName();
                     }
 
                     @Override
@@ -133,6 +134,7 @@ public class CloudNetSkAddon extends JavaPlugin {
         Skript.registerExpression(ExprServiceInfoSnapshotName.class, String.class, ExpressionType.COMBINED, "[cloud[ ]net] [the] name of %serviceinfosnapshot%");
         Skript.registerExpression(ExprServiceInfoSnapshotAddress.class, String.class, ExpressionType.COMBINED, "[cloud[ ]net] [the] address of %serviceinfosnapshot%");
         Skript.registerExpression(ExprServiceInfoSnapshotLifeCycle.class, String.class, ExpressionType.COMBINED, "[cloud[ ]net] [the] life[ ]cycle of %serviceinfosnapshot%");
+        Skript.registerExpression(ExprServiceInfoSnapshotOnlineCount.class, Integer.class, ExpressionType.COMBINED, "[cloud[ ]net] [the] online player[s] count of %serviceinfosnapshot%");
     }
 
 }
