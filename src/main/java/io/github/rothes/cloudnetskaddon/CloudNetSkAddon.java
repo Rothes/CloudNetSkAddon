@@ -9,6 +9,8 @@ import ch.njol.skript.lang.ParseContext;
 import ch.njol.skript.registrations.Classes;
 import io.github.rothes.cloudnetskaddon.classes.CloudNetServiceInfoSnapshot;
 import io.github.rothes.cloudnetskaddon.effects.*;
+import io.github.rothes.cloudnetskaddon.expressions.ExprCloudServicesByGroup;
+import io.github.rothes.cloudnetskaddon.expressions.ExprCloudServicesByTask;
 import io.github.rothes.cloudnetskaddon.expressions.ExprCreateBy;
 import io.github.rothes.cloudnetskaddon.expressions.ExprCreateNew;
 import io.github.rothes.cloudnetskaddon.expressions.ExprCloudServices;
@@ -133,9 +135,9 @@ public class CloudNetSkAddon extends JavaPlugin {
 
         Skript.registerExpression(ExprCloudServices.class, CloudNetServiceInfoSnapshot.class, ExpressionType.SIMPLE,
                 "[the] [cloud[ ]net] cloud service[s]");
-        Skript.registerExpression(ExprCloudServices.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED,
+        Skript.registerExpression(ExprCloudServicesByTask.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED,
                 "[the] [cloud[ ]net] cloud service[s] by task %string%");
-        Skript.registerExpression(ExprCloudServices.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED,
+        Skript.registerExpression(ExprCloudServicesByGroup.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED,
                 "[the] [cloud[ ]net] cloud service[s] by group %string%");
 
         Skript.registerExpression(ExprServiceInfoSnapshotName.class, String.class, ExpressionType.COMBINED, "[cloud[ ]net] [the] name of %serviceinfosnapshot%");
