@@ -25,7 +25,7 @@ public class ExprCreateBy extends BaseCloudNetCreateExpr {
                 .getServiceTask(task.getSingle(e));
         Collection<ServiceInfoSnapshot> serviceInfoSnapshots = runCloudService(
                 e,
-                count != null ? count.getSingle(e) : 1,
+                count != null ? count.getSingle(e).intValue() : 1,
                 serviceTask.getName(),
                 serviceTask.getRuntime(),
                 serviceTask.isAutoDeleteOnStop(),

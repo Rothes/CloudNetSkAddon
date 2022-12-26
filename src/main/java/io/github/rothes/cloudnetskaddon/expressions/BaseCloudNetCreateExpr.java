@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 public abstract class BaseCloudNetCreateExpr extends BaseCloudNetExpr<CloudNetServiceInfoSnapshot> {
 
-    protected Expression<Integer> count;
+    protected Expression<Number> count;
     protected Expression<String> name;
     protected Expression<String> runtime;
     protected Expression<Boolean> autoDeleteOnStop;
@@ -29,7 +29,7 @@ public abstract class BaseCloudNetCreateExpr extends BaseCloudNetExpr<CloudNetSe
     protected Expression<String> nodes;
     protected Expression<String> templates;
     protected Expression<String> deployments;
-    protected Expression<Integer> port;
+    protected Expression<Number> port;
     protected Expression<String> groups;
     protected Expression<String> deletedFilesAfterStop;
     protected Expression<String> memory;
@@ -50,7 +50,7 @@ public abstract class BaseCloudNetCreateExpr extends BaseCloudNetExpr<CloudNetSe
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
-        count = (Expression<Integer>) exprs[0];
+        count = (Expression<Number>) exprs[0];
         name = (Expression<String>) exprs[1];
         runtime = (Expression<String>) exprs[2];
         autoDeleteOnStop = (Expression<Boolean>) exprs[3];
@@ -58,7 +58,7 @@ public abstract class BaseCloudNetCreateExpr extends BaseCloudNetExpr<CloudNetSe
         nodes = (Expression<String>) exprs[5];
         templates = (Expression<String>) exprs[6];
         deployments = (Expression<String>) exprs[7];
-        port = (Expression<Integer>) exprs[8];
+        port = (Expression<Number>) exprs[8];
         groups = (Expression<String>) exprs[9];
         deletedFilesAfterStop = (Expression<String>) exprs[10];
         memory = (Expression<String>) exprs[11];
@@ -99,7 +99,7 @@ public abstract class BaseCloudNetCreateExpr extends BaseCloudNetExpr<CloudNetSe
                         .map(serviceTemplate -> new ServiceDeployment(serviceTemplate, new ArrayList<>()))
                         .collect(Collectors.toList()) : deployments;
 
-        Integer finalStartPort = this.port != null ? this.port.getSingle(e) : startPort;
+        Integer finalStartPort = this.port != null ? this.port.getSingle(e).intValue() : startPort;
         if (finalStartPort == null) {
             finalStartPort = processConfiguration.getEnvironment().getDefaultStartPort();
         }

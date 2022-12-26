@@ -24,7 +24,7 @@ public class ExprCreateNew extends BaseCloudNetCreateExpr {
 
         Collection<ServiceInfoSnapshot> serviceInfoSnapshots = runCloudService(
                 e,
-                count != null ? count.getSingle(e) : 1,
+                count != null ? count.getSingle(e).intValue() : 1,
                 name,
                 null,
                 false,
