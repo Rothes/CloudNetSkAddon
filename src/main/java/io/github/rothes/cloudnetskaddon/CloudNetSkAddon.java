@@ -17,6 +17,7 @@ import io.github.rothes.cloudnetskaddon.expressions.ExprCloudServices;
 import io.github.rothes.cloudnetskaddon.expressions.ExprOnlinePlayers;
 import io.github.rothes.cloudnetskaddon.expressions.ExprOnlinePlayersCount;
 import io.github.rothes.cloudnetskaddon.expressions.ExprRegisteredPlayers;
+import io.github.rothes.cloudnetskaddon.expressions.ExprThisService;
 import io.github.rothes.cloudnetskaddon.expressions.cloudnetserviceinfosnapshot.ExprServiceInfoSnapshotAddress;
 import io.github.rothes.cloudnetskaddon.expressions.cloudnetserviceinfosnapshot.ExprServiceInfoSnapshotLifeCycle;
 import io.github.rothes.cloudnetskaddon.expressions.cloudnetserviceinfosnapshot.ExprServiceInfoSnapshotName;
@@ -133,6 +134,8 @@ public class CloudNetSkAddon extends JavaPlugin {
                 "[[with] memory %-string%] [[with] jvmOptions %-string%] [[with] processParameters %-string%] [[with] javaCommand %-string%] [with] type %string%" +
                 "[(1¦and start)]");
 
+        Skript.registerExpression(ExprThisService.class, CloudNetServiceInfoSnapshot.class, ExpressionType.SIMPLE,
+                "[cloud[ ]net] this [cloud[ ]net] service");
         Skript.registerExpression(ExprCloudServices.class, CloudNetServiceInfoSnapshot.class, ExpressionType.SIMPLE,
                 "[the] [cloud[ ]net] cloud service[s]");
         Skript.registerExpression(ExprCloudServicesByTask.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED,
