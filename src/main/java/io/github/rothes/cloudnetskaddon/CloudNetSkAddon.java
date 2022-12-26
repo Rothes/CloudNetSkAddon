@@ -121,13 +121,13 @@ public class CloudNetSkAddon extends JavaPlugin {
         Skript.registerExpression(ExprRegisteredPlayers.class, String.class, ExpressionType.SIMPLE,
                 "[the] [cloud[ ]net] registered player[s]");
 
-        Skript.registerExpression(ExprCreateBy.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED, "[cloud[ ]net] create [%-integer%] service[s] [named %-string%] " +
+        Skript.registerExpression(ExprCreateBy.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED, "[cloud[ ]net] create [%-number%] service[s] [named %-string%] " +
                 "[[with] runtime %-string%] [[with] auto[ ]delete[ ]on[ ]stop %-boolean%] [[with] static[ ]services %-boolean%] " +
                 "[[with] nodes %-string%] [[with] templates %-string%] [[with] deployments %-string%] " +
                 "[[with] port %-string%] [[with] groups %-string%] [[with] deleted[ ]files[ ]after[ ]stop %-string%] " +
                 "[[with] memory %-string%] [[with] jvmOptions %-string%] [[with] processParameters %-string%] [[with] javaCommand %-string%] by task %string%" +
                 "[(1¦and start)]");
-        Skript.registerExpression(ExprCreateNew.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED, "[cloud[ ]net] create new [%-integer%] service[s] named %string% " +
+        Skript.registerExpression(ExprCreateNew.class, CloudNetServiceInfoSnapshot.class, ExpressionType.COMBINED, "[cloud[ ]net] create new [%-number%] service[s] named %string% " +
                 "[[with] runtime %-string%] [[with] auto[ ]delete[ ]on[ ]stop %-boolean%] [[with] static[ ]services %-boolean%] " +
                 "[[with] nodes %-string%] [[with] templates %-string%] [[with] deployments %-string%] " +
                 "[[with] port %-string%] [[with] groups %-string%] [[with] deleted[ ]files[ ]after[ ]stop %-string%] " +
